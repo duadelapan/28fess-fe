@@ -44,7 +44,7 @@ const Reply = () => {
     e.preventDefault();
     setIsLoading(true);
     const res = await fetch(
-      `https://dualapan.herokuapp.com/api/get-tweet-html?link=${tweetLink}`
+      `https://dualapanfess.up.railway.app/api/get-tweet-html?link=${tweetLink}`
     );
     const data = await res.json();
     if (res.ok) {
@@ -101,7 +101,7 @@ const Reply = () => {
     } else {
       setIsRequested(true);
       const mediaId = withImage ? await postImage() : null;
-      const res = await fetch("https://dualapan.herokuapp.com/api/tweet", {
+      const res = await fetch("https://dualapanfess.up.railway.app/api/tweet", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -137,7 +137,7 @@ const Reply = () => {
   const postImage = async () => {
     let formData = new FormData();
     formData.append("files", imageValue);
-    const res = await fetch("https://dualapan.herokuapp.com/api/image", {
+    const res = await fetch("https://dualapanfess.up.railway.app/api/image", {
       method: "POST",
       body: formData,
     });

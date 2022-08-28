@@ -63,7 +63,7 @@ function Tweet() {
       setErrorMsg("Tweet wajib berisi keyword 'dupan!'");
     } else {
       const mediaId = withImage ? await postImage() : null;
-      const res = await fetch("https://dualapan.herokuapp.com/api/tweet", {
+      const res = await fetch("https://dualapanfess.up.railway.app/api/tweet", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: tweetText, media_id: mediaId }),
@@ -90,7 +90,7 @@ function Tweet() {
   const postImage = async () => {
     let formData = new FormData();
     formData.append("files", imageValue);
-    const res = await fetch("https://dualapan.herokuapp.com/api/image", {
+    const res = await fetch("https://dualapanfess.up.railway.app/api/image", {
       method: "POST",
       body: formData,
     });
